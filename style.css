@@ -1,0 +1,774 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: white;
+    min-height: 100vh;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navBar{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    height: 65px;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.navBar i{
+    color: black;
+    font-size: 20px;
+    margin-right: 40px;
+    display: none;
+}
+
+.navBar .logo{
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: auto;
+}
+
+.navBar ul{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.navBar ul li{
+    list-style: none;
+}
+
+.navBar ul a{
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+.navBar ul a::after{
+    content: '';
+    border-radius: 20px;
+    transition: width 0.3s ease-in;
+    width: 0%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.navBar ul a:hover::after{
+    background-color: rgb(240, 209, 36);
+    width: 100%;
+    height: 3.5px;
+}
+
+aside{
+    width: 45%;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    gap: 50px;
+    box-shadow: 6px 6px 3px 10px rgba(0, 0, 0, 0.45);
+    display: none;
+}
+
+.sideBar i{
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.sideBar ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sideBar ul li{
+    list-style: none;
+}
+
+.sideBar ul a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+
+.sideBar ul a:hover{
+    color: rgb(240, 209, 36);
+    
+}
+
+#homePage{
+    background: rgba(0, 0, 0, 0.5) url(images/giorgio-trovato-gb6gtiTZKB8-unsplash.avif);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88.9vh;
+}
+
+#homePage .homeContainer{
+    margin-bottom: 10em;
+    text-align: center;
+    margin-top: 6em;
+}
+
+#homePage .homeContainer h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-size: 50px;
+}
+
+#homePage .homeContainer p{
+    margin-top: 20px;
+    color: rgb(247, 238, 238);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    width: 800px;
+}
+
+
+#homePage .homeContainer button{
+    background-color: rgb(240, 209, 36);
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 2px 2px 2px 2px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+#homePage .homeContainer button:hover{
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+#homePage .homeContainer .homeBtn{
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+#homePage .homeContainer .homeBtn .galleryBtn{
+    background-color: transparent;
+    border: 2px solid rgb(240, 209, 36);
+    color: rgb(240, 209, 36);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#homePage .homeContainer .homeBtn a{
+    text-decoration: none;
+    color: black;
+}
+
+#homePage .homeContainer .homeBtn .galleryBtn a{
+    text-decoration: none;
+    color: rgb(240, 209, 36);
+}
+
+#homePage .homeContainer .homeBtn .galleryBtn:hover{
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#whyChooseUs{
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+    min-height: 89vh;
+    margin-top: 20px;
+}
+
+#whyChooseUs h2{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+#whyChooseUs P{
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+#whyChooseUs .cardContainer{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#whyChooseUs .cardContainer .cards{
+    padding: 5px 20px 5px 20px;
+    height: 8.5em;
+    width: 18em;
+    box-shadow: 1px 1px 8px 9px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+    transition: all 0.3s ease-in;
+}
+
+#whyChooseUs .cardContainer .cards:hover{
+    box-shadow: 1px 1px 8px 9px rgba(240, 209, 36, 0.2);
+    transform: translateY(-5px);
+}
+
+#whyChooseUs .cardContainer .cards i{
+    font-size: 30px;
+    color: rgb(240, 209, 36);
+    margin-bottom: 10px;
+}
+
+#whyChooseUs .cardContainer .cards h3{
+    margin-bottom: 10px;
+}
+
+#whatWeOffer{
+    text-align: center;
+    background-color: rgb(243, 241, 237);
+    padding: 20px 20px 20px 20px;
+    min-height: 105vh;
+}
+
+#whatWeOffer h3{
+    font-size: 36px;
+    margin-top: 30px;
+
+}
+
+#whatWeOffer p{
+    margin-top: 25px;
+    font-size: 17px;
+}
+
+#whatWeOffer .offerContainer{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr); 
+    grid-template-columns: repeat(3, auto); 
+    margin-top: 35px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#whatWeOffer .offerContainer .offerCard{
+    height: 16em;
+    width: 17em;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#whatWeOffer .offerContainer .offerCard img{
+    height: 280px;
+    width: 280px;
+    display: block;
+}
+
+.overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.overlay h4{
+  font-size: 20px;
+}
+
+.overlay p{
+  font-size: 16px;
+  width: 80%;
+  text-align: center;
+}
+
+.offerCard:hover .overlay{
+  opacity: 1;
+}
+
+
+#gallery{
+    padding: 50px 30px 20px 30px;
+    text-align: center;
+    min-height: 74vh;
+}
+
+#gallery h4{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+#gallery p{
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+#gallery .galleryContainer{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    overflow:hidden;
+    width:100%;
+    border-radius: 10px;
+}
+
+#gallery .galleryContainer .galleryCard{
+    display: flex;
+    gap: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    display:flex;
+    width:max-content;
+    animation:scrollGallery 20s linear infinite;
+}
+
+#gallery .galleryContainer .galleryCard img{
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+@keyframes scrollGallery{
+    0%{
+      transform:translateX(0);
+    }
+
+    100%{
+       transform:translateX(-50%);
+    }
+}
+
+
+#gallery .galleryContainer .galleryCard:hover{
+    animation-play-state: paused;
+}
+
+#gallery .galleryContainer .galleryCard img{
+    transition:0.4s;
+}
+
+#gallery .galleryContainer .galleryCard img:hover{
+    transform:scale(1.1);
+}
+
+
+#achievement{
+    padding: 50px 20px 50px 20px;
+    text-align: center;
+    min-height: 35vh;
+    background-color: rgb(243, 241, 237);
+}
+
+#achievement h5{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+#achievement p{
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+#achievement .achievementContainer{
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+}
+
+#achievement .achievementContainer .stat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#achievement .achievementContainer .stat i{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#achievement .achievementContainer .stat h6{
+    color: rgb(240, 209, 36);
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+#achievement .achievementContainer .stat p{
+    font-size: 17px;
+}
+
+#testimonials{
+    text-align:center;
+    padding: 50px 20px 50px 20px;
+    min-height: 90vh;
+}
+
+#testimonials h6{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+
+#testimonials p{
+    font-size: 16px;
+}
+
+.testimonial-slider{
+    position:relative;
+    max-width:600px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial{
+    display: none;
+    background:#f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.testimonial span{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#testimonials .testimonial h6{ 
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.testimonial.active{
+    display: block;
+    height: 22em;
+    margin-top: 50px;
+}
+
+button.prev,
+button.next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(240, 209, 36);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev{
+    left: -20px;
+}
+
+.next{
+    right: -20px;
+}
+
+#testimonials .testimonial img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#booking{
+    display: flex;
+    flex-direction: column;
+    padding: 62px 20px 50px 20px;
+    text-align: center;
+    min-height: 80vh;
+    background-color: rgb(243, 241, 237);
+}
+
+#booking h6{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+#booking p{
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+#booking form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#booking .bookingForm{
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px 9px rgba(0, 0, 0, 0.13);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    width: 500px;
+    height: 480px;
+}
+
+#booking .bookingForm .bookingContainer input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 320px;
+    height: 40px;
+    outline: rgb(240, 209, 36);
+}
+
+#booking .bookingForm .bookingContainer label{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#booking .bookingForm button{
+    background-color: rgb(240, 209, 36);
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 2px 2px 2px 2px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#booking .bookingForm button:hover{
+    transform: translateY(-1px);
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+#booking .bookingForm .bookingContainer #service{
+    width: 320px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+#booking .bookingForm .bookingContainer #time{
+    width: 320px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.booking-container{
+  max-width:400px;
+  margin:50px auto;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  background:#fff;
+  text-align:center;
+}
+
+.booking-container input,
+.booking-container select,
+.booking-container button{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+.booking-container button{
+  background-color: rgb(240, 209, 36);
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.popup{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popupText{
+    line-height: 20px;
+}
+
+.popup-box{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    width:350px;
+    animation:scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn{
+    0%{transform:scale(0.7);opacity:0;}
+    100%{transform:scale(1);opacity:1;}
+}
+
+.popup button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    background:rgb(240, 209, 36);
+    color:black;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.check{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:4px solid #4CAF50;
+    margin:0 auto 10px;
+    position:relative;
+}
+
+.check::after{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:4px;
+    width:12px;
+    height:24px;
+    border-right:4px solid #4CAF50;
+    border-bottom:4px solid #4CAF50;
+    transform:rotate(45deg);
+}
+
+#footer{
+    background-color: rgb(23, 23, 23);
+    padding: 30px 50px 30px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+#footer .footerContainer{
+    display: flex;
+    gap: 60px;
+   
+}
+
+#footer .footerContainer .logo h3, .links h3, .customerCare h3, .footerHours h3, .followUs h3{
+    color: white;
+    font-size: 17px;
+}
+
+#footer .footerContainer .links, .customerCare{
+    display: flex;
+    flex-direction: column;
+}
+
+#footer .footerContainer .links a, .customerCare a{
+    margin-top: 15px;
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#footer .footerContainer .logo p, .footerHours p{
+    margin-top: 15px;
+    color: rgb(224, 224, 224);
+    font-size: 16px;
+}
+
+footer .footerContainer .followUs .icon{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#footer .footerContainer .followUs i{
+    margin-top: 15px;
+    color: rgb(224, 224, 224);
+    font-size: 22px;
+    transition: all 0.3s ease-in;
+}
+
+#footer .footerContainer .followUs i:hover{
+   color: rgb(240, 209, 36);
+    transform: translateY(-2px);
+}
+
+#footer .ending p{
+    color: rgb(224, 224, 224);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.6s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
