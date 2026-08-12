@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -15,24 +16,27 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="booking.html">Booking</a></li>
+                <li><a href="viewbooking.html">Appointments</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <i class="fa-solid fa-bars" id="toggleBtn"></i>
         </nav>
-    </header>    
-    <aside>
-        <nav class="sideBar">
-            <i class="fa-solid fa-times" id="cancelBtn"></i>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </aside>    
+    </header>
+
+    <!-- Responsive sidebar (shown on small screens) -->
+    <div id="sideBarOverlay"></div>
+    <aside id="sideBar">
+        <i class="fa-solid fa-xmark" id="closeSidebarBtn"></i>
+        <a href="index.html" class="logo">PEDICARE</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="viewbooking.html">Appointment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </aside>
+
     <section id="aboutPage">
         <div class="logo"><h1>About Us</h1></div>
         <div class="aboutUs">
@@ -53,8 +57,8 @@
                 <h3>Quick Link</h3>
                 <a href="index.html">Home</a>
                 <a href="#">About Us</a>
-                <a href="service.css">Services</a>
-                <a href="booking.html">Booking</a>
+                <a href="services.html">Services</a>
+                <a href="viewbooking.html">Appointments</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="customerCare">
@@ -84,5 +88,6 @@
             <p>Built by Dev Sammy</p>
         </div>
     </footer>
+    <script src="nav.js"></script>
 </body>
 </html>

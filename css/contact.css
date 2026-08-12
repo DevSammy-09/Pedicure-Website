@@ -86,51 +86,6 @@ header{
     height: 3.5px;
 }
 
-aside{
-    width: 45%;
-    height: 100vh;
-    background-color: white;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    gap: 50px;
-    box-shadow: 6px 6px 3px 10px rgba(0, 0, 0, 0.45);
-    display: none;
-}
-
-.sideBar i{
-    color: black;
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-.sideBar ul{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.sideBar ul li{
-    list-style: none;
-}
-
-.sideBar ul a{
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all ease-in-out 0.5s;
-}
-
-.sideBar ul a:hover{
-    color: rgb(240, 209, 36);
-    
-}
-
 #contactPage{
     background-color: white;
     display: flex;

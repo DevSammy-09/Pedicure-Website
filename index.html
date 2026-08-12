@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pedicare</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
@@ -15,31 +16,34 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="viewbooking.html">Appointments</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <i class="fa-solid fa-bars" id="toggleBtn"></i>
             </nav>
         </header>
-        <aside>
-            <nav class="sideBar">
-                <i class="fa-solid fa-times" id="cancelBtn"></i>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="booking.html">Booking</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+
+        <!-- Responsive sidebar (shown on small screens) -->
+        <div id="sideBarOverlay"></div>
+        <aside id="sideBar">
+            <i class="fa-solid fa-xmark" id="closeSidebarBtn"></i>
+            <a href="index.html" class="logo">PEDICARE</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="viewbooking.html">Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </aside>
+        
         <section id="homePage">
             <div class="homeContainer">
                 <h1>Relax Refresh Renew With Our Luxury <br> Pedicure Treatments</h1>
                 <p>Enjoy a relaxing pedicure experience with expert care  premium <br> products and hygienic tools designed to keep your feet healthy smooth.</p>
                 <div class="homeBtn">
                     <button><a href="#booking">Book Now &rarr;</a></button>
-                    <button class="galleryBtn"><a href="booking.html">View Booking</a></button>
+                    <button class="galleryBtn"><a href="viewbooking.html">View Appointments</a></button>
                 </div>
             </div>
         </section>
@@ -198,23 +202,23 @@
         <section id="booking" class="reveal">
             <h6>Book Your Appointment</h6>
             <p>Schedule your next pedicure session with us today!</p>
-            <form action="" id="bookingForms" novalidate>
+            <form action="booking_submit.php" method="post" id="bookingForms" novalidate>
                 <div class="bookingForm">
                     <div class="bookingContainer">
                         <label for="name">Your Full Name:</label>
-                        <input type="text" id="name" placeholder="Enter your full name">
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                     </div>
                     <div class="bookingContainer">
                         <label for="number">Phone Number:</label>
-                        <input type="tel" id="number" placeholder="Enter your phone number" required>
+                        <input type="tel" id="number" name="number" placeholder="Enter your phone number" required>
                     </div>
                     <div class="bookingContainer">
                         <label for="email">Email Address:</label>
-                        <input type="email" id="email" placeholder="Enter your email address" required>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                     </div>
                     <div class="bookingContainer">
                         <label for="service">Select Service:</label>
-                        <select id="service" required>
+                        <select id="service" name="service" required>
                             <option value="" disabled selected>Select Your Service</option>
                             <option value="Gel Pedicure">Gel Pedicure</option>
                             <option value="Spa Pedicure">Spa Pedicure</option>
@@ -226,11 +230,11 @@
                     </div>
                     <div class="bookingContainer">
                         <label for="date">Preferred Date:</label>
-                        <input type="date" id="date" min="${today}">
+                        <input type="date" id="date" name="date" required>
                     </div> 
                     <div class="bookingContainer">
                         <label for="time">Preferred Time:</label>
-                        <select id="time">
+                        <select id="time" name="time" required>
                             <option value="" selected disabled>Select Your Time</option>
                             <option value="10:00 AM">10:00 AM</option>
                             <option value="11:00 AM">11:00 AM</option>
@@ -242,7 +246,7 @@
                             <option value="17:00 PM">17:00 PM</option>
                         </select>
                     </div>
-                    <button onclick="bookAppoint()">Book Appointment</button>
+                    <button type="submit">Book Appointment</button>
                 </div>
             </form>
         </section>
@@ -264,8 +268,8 @@
                     <h3>Quick Link</h3>
                     <a href="#">Home</a>
                     <a href="about.html">About Us</a>
-                    <a href="service.html">Services</a>
-                    <a href="booking.html">Booking</a>
+                    <a href="services.html">Services</a>
+                    <a href="viewbooking.html">Appointments</a>
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="customerCare">
@@ -295,6 +299,7 @@
                 <p>Built by Dev Sammy</p>
             </div>
         </footer>
-        <script src="index.js"></script>
+        <script src="index.js?v=2"></script>
+        <script src="nav.js"></script>
     </body>
 </html>

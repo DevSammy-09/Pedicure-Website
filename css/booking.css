@@ -86,51 +86,6 @@ header{
     height: 3.5px;
 }
 
-aside{
-    width: 45%;
-    height: 100vh;
-    background-color: white;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    gap: 50px;
-    box-shadow: 6px 6px 3px 10px rgba(0, 0, 0, 0.45);
-    display: none;
-}
-
-.sideBar i{
-    color: black;
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-.sideBar ul{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.sideBar ul li{
-    list-style: none;
-}
-
-.sideBar ul a{
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all ease-in-out 0.5s;
-}
-
-.sideBar ul a:hover{
-    color: rgb(240, 209, 36);
-    
-}
-
 #bookingPage{
     background-color: white;
     display: flex;
@@ -142,11 +97,14 @@ aside{
     flex-direction: column;
     align-items: center;
     min-height: 71vh;
-    padding: 30px 30px 30px 30px;
-    gap: 15px;
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    gap: 18px;
 }
 
-#bookingPage #appointmentList p{
+#bookingPage #appointmentList > p{
     font-size: 16px;
     font-weight: bold;
     color: rgb(26, 25, 25);
@@ -168,41 +126,52 @@ aside{
 }
 
 .card{
-    background: rgb(244, 244, 243);
-    padding: 15px 10px;
-    margin-bottom: 15px;
-    border-radius: 10px;
+    background: #ffffff;
+    padding: 20px 24px;
+    margin-bottom: 0;
+    border: 1px solid #eeeeee;
+    border-left: 4px solid rgb(240, 209, 36);
+    border-radius: 14px;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 90px;
-    transition: all 0.3s ease-in-out;
+    gap: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover{
-    transform: translateY(-5px);
-    box-shadow: 1px 1px 8px 9px rgba(0, 0, 0, 0.13);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card .details{
     margin-right: auto;
     display: flex;
-    gap: 43px;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .card .details p{
-    font-size: 19px;
-    font-weight: bold;
-    color: rgb(53, 52, 52);
+    font-size: 15px;
+    font-weight: 500;
+    color: #555555;
+    margin: 0;
     
+}
+
+.card .details p strong{
+    color: #1a1919;
+    font-weight: 700;
+    margin-right: 4px;
 }
 
 .buttonContainer{
     display: flex;
-    gap: 15px;
+    gap: 12px;
     justify-content: flex-end;
-    width: 23%;
+    flex-shrink: 0;
 }
 
 button{
@@ -217,6 +186,38 @@ button{
 
 button:hover{
     opacity: 0.8;
+}
+
+.buttonContainer button{
+    width: auto;
+    min-width: 84px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.buttonContainer button:first-child{
+    background-color: rgb(240, 209, 36);
+    color: #1a1919;
+}
+
+.buttonContainer button:first-child:hover{
+    opacity: 1;
+    background-color: rgb(230, 199, 26);
+}
+
+.buttonContainer button:last-child{
+    background-color: #ffffff;
+    color: #e04646;
+    border: 1.5px solid #e04646;
+}
+
+.buttonContainer button:last-child:hover{
+    opacity: 1;
+    background-color: #e04646;
+    color: #ffffff;
 }
 
 .popup{
@@ -353,4 +354,98 @@ footer .footerContainer .followUs .icon{
     text-align: center;
     margin-top: 5px;
     font-size: 18px;
+}
+
+/* ============================================================
+   VIEWBOOKING RESPONSIVENESS
+   Placed at the end so these override the base rules above.
+   ============================================================ */
+
+/* Tablets */
+@media (max-width: 768px){
+    #bookingPage .logo{
+        height: 150px;
+    }
+
+    #bookingPage .logo h1{
+        font-size: 28px;
+    }
+
+    #bookingPage #appointmentList{
+        padding: 30px 16px;
+    }
+
+    .card{
+        padding: 18px 18px;
+    }
+}
+
+/* Phones: stack card content and make buttons full width */
+@media (max-width: 600px){
+    #bookingPage .logo{
+        height: 120px;
+    }
+
+    #bookingPage .logo h1{
+        font-size: 24px;
+    }
+
+    .card{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 18px 16px;
+    }
+
+    .card .details p{
+        font-size: 14px;
+    }
+
+    .buttonContainer{
+        justify-content: stretch;
+        width: 100%;
+    }
+
+    .buttonContainer button{
+        flex: 1;
+    }
+
+    /* Edit-appointment modal becomes fluid */
+    .modalContent{
+        width: 92%;
+        max-width: 420px;
+        height: auto;
+        padding: 20px 18px;
+    }
+
+    .modalContent .modalBtn{
+        flex-direction: column;
+    }
+
+    .modalContent .modalBtn button{
+        width: 100%;
+    }
+
+    /* Toast popup spans the top nicely on small screens */
+    .popup{
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        text-align: center;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px){
+    #bookingPage .logo h1{
+        font-size: 21px;
+    }
+
+    .card{
+        border-radius: 12px;
+    }
+
+    .card .details{
+        gap: 6px;
+    }
 }

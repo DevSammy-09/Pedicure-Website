@@ -1,0 +1,39 @@
+{
+  // ------------------------------------------------------------------
+  // LIVE PREVIEW SETUP (auto-refresh while editing HTML/CSS)
+  //
+  // This project uses PHP + MySQL (booking_submit.php, contact_submit.php)
+  // which are served by XAMPP's Apache. A normal Live Server CANNOT run PHP,
+  // so we run Live Server in PROXY mode: it gives you auto-refresh AND forwards
+  // requests to your already-working Apache so bookings keep saving.
+  //
+  // HOW TO USE:
+  //   1) Open XAMPP Control Panel and make sure BOTH "Apache" and "MySQL" say
+  //      "Running" (green).
+  //   2) In VS Code, click "Go Live" in the bottom-right status bar
+  //      (added by the Live Server extension).
+  //   3) Your browser opens at http://127.0.0.1:5500/index.html
+  //   4) Edit any .html or .css file and SAVE (Ctrl+S) -> the page auto-refreshes.
+  //      The booking form still works because PHP runs on Apache behind the proxy.
+  // ------------------------------------------------------------------
+
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.host": "127.0.0.1",
+
+  // Forward every request to XAMPP Apache (where PHP + MySQL run).
+  // %20 is the encoded space in the folder name "Pedicure Website Project".
+  "liveServer.settings.proxy": {
+    "enable": true,
+    "baseUri": "/",
+    "proxyUri": "http://localhost/Pedicure%20Website%20Project/"
+  },
+
+  // Auto-refresh the whole page whenever any of these files change.
+  "liveServer.settings.fullReload": true,
+
+  // Don't inject the reload snippet into PHP responses in a way that breaks JSON.
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    "**/*.php"
+  ]
+}

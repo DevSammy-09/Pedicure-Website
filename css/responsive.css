@@ -1,0 +1,369 @@
+/* ============================================================
+   SHARED RESPONSIVE + SIDEBAR STYLES
+   Loaded on every page AFTER its own stylesheet, so these rules
+   override the fixed desktop layout on smaller screens.
+   ============================================================ */
+
+/* Prevent horizontal scrolling on small screens & allow images to scale.
+   NOTE: apply overflow-x to <body> only (not <html>). Setting it on both
+   turns <body> into a scroll container, which breaks the sticky navbar.
+   With it on <body> only, the value propagates to the viewport (still
+   clipping the off-canvas sidebar) while keeping position: sticky working. */
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+body.noScroll {
+    overflow: hidden;
+}
+
+/* ---------- SLIDE-IN SIDEBAR (all pages) ---------- */
+#sideBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 270px;
+    max-width: 80%;
+    background: #ffffff;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 70px 30px 30px;
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+}
+
+#sideBar.open {
+    transform: translateX(0);
+}
+
+#sideBar #closeSidebarBtn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 26px;
+    color: #1a1919;
+    cursor: pointer;
+    display: block;
+}
+
+#sideBar .logo {
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #1a1919;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+#sideBar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#sideBar ul li {
+    list-style: none;
+    width: 100%;
+}
+
+#sideBar ul a {
+    display: block;
+    width: 100%;
+    padding: 12px 10px;
+    color: #1a1919;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#sideBar ul a:hover {
+    background: rgb(240, 209, 36);
+    color: #1a1919;
+}
+
+/* Dark overlay behind the sidebar */
+#sideBarOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    z-index: 1500;
+}
+
+#sideBarOverlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================================
+   BREAKPOINT: <= 900px  (tablets / large phones)
+   Swap the top nav links for the hamburger + sidebar.
+   ============================================================ */
+@media (max-width: 900px) {
+    .navBar {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .navBar .logo {
+        margin-left: 0;
+        font-size: 26px;
+    }
+
+    .navBar ul {
+        display: none;
+    }
+
+    .navBar i {
+        display: block;
+        margin-right: 0;
+        cursor: pointer;
+    }
+
+    /* ---- Home / index ---- */
+    #homePage {
+        height: auto;
+        min-height: 90vh;
+        padding: 40px 20px;
+    }
+
+    #homePage .homeContainer {
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+
+    #homePage .homeContainer h1 {
+        font-size: 34px;
+    }
+
+    #homePage .homeContainer h1 br,
+    #homePage .homeContainer p br {
+        display: none;
+    }
+
+    #homePage .homeContainer p {
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 16px;
+    }
+
+    /* What We Offer: 3 -> 2 columns */
+    #whatWeOffer .offerContainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    #whatWeOffer .offerContainer .offerCard,
+    #whatWeOffer .offerContainer .offerCard img {
+        width: 100%;
+        height: auto;
+    }
+
+    #whatWeOffer .offerContainer .offerCard img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    /* Services grid: 3 -> 2 columns and fluid cards */
+    #servicePage .serviceContainer {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px;
+        gap: 25px;
+    }
+
+    #servicePage .serviceContainer .servicePrice,
+    #servicePage .serviceContainer .servicePrice p {
+        width: 100%;
+    }
+
+    /* Booking form fluid */
+    #booking .bookingForm {
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        padding: 25px;
+    }
+
+    #booking .bookingForm .bookingContainer,
+    #booking .bookingForm .bookingContainer input,
+    #booking .bookingForm .bookingContainer #service,
+    #booking .bookingForm .bookingContainer #time {
+        width: 100%;
+    }
+
+    /* About: image + text stack */
+    #aboutPage .aboutUs {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #aboutPage p {
+        width: 100%;
+    }
+
+    #aboutPage img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin-left: 0;
+    }
+
+    /* Contact: two panels stack */
+    #contactPage .contactContainer {
+        flex-direction: column;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    #contactPage .contactContainer .contactInfo,
+    #contactPage .contactContainer .contactForm {
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+    }
+
+    #contactPage .contactContainer .contactForm input,
+    #contactPage .contactContainer .contactForm textarea {
+        width: 100%;
+    }
+
+    /* Edit-appointment modal fluid */
+    .modalContent {
+        width: 90%;
+        max-width: 450px;
+        height: auto;
+    }
+
+    /* Footer: wrap the columns */
+    #footer {
+        padding: 30px 25px;
+        gap: 40px;
+    }
+
+    #footer .footerContainer {
+        flex-wrap: wrap;
+        gap: 30px 40px;
+    }
+}
+
+/* ============================================================
+   BREAKPOINT: <= 600px  (phones)
+   ============================================================ */
+@media (max-width: 600px) {
+    #homePage .homeContainer h1 {
+        font-size: 27px;
+    }
+
+    #homePage .homeContainer .homeBtn {
+        flex-direction: column;
+    }
+
+    #homePage .homeContainer .homeBtn button,
+    #homePage .homeContainer .homeBtn .galleryBtn {
+        width: 220px;
+    }
+
+    /* Single-column grids on phones */
+    #whatWeOffer .offerContainer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    #servicePage .serviceContainer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 25px 20px;
+    }
+
+    #servicePage .serviceContainer .servicePrice {
+        max-width: 400px;
+        height: auto;
+        min-height: 220px;
+    }
+
+    /* Keep testimonial arrows on-screen */
+    .testimonial-slider {
+        max-width: 90%;
+    }
+
+    button.prev {
+        left: 5px;
+    }
+
+    button.next {
+        right: 5px;
+    }
+
+    /* Section headings scale down */
+    #whyChooseUs h2,
+    #whatWeOffer h3,
+    #gallery h4,
+    #achievement h5,
+    #testimonials h6,
+    #booking h6 {
+        font-size: 28px;
+    }
+
+    /* Achievements wrap into a 2-up grid */
+    #achievement .achievementContainer {
+        flex-wrap: wrap;
+        gap: 30px 50px;
+    }
+
+    /* Footer stacks into a single column */
+    #footer .footerContainer {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #footer .ending p {
+        font-size: 15px;
+    }
+
+    /* Page banner headings */
+    #aboutPage .logo,
+    #servicePage .logo,
+    #contactPage .logo,
+    #bookingPage .logo {
+        height: 130px;
+    }
+}
+
+/* ============================================================
+   BREAKPOINT: <= 400px  (small phones)
+   ============================================================ */
+@media (max-width: 400px) {
+    #homePage .homeContainer h1 {
+        font-size: 23px;
+    }
+
+    .navBar .logo {
+        font-size: 22px;
+    }
+
+    #sideBar {
+        width: 240px;
+    }
+}

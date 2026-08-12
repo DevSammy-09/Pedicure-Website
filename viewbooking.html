@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title>Appointments</title>
     <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -15,24 +16,27 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="#">Booking</a></li>
+                <li><a href="#">Appointments</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <i class="fa-solid fa-bars" id="toggleBtn"></i>
         </nav>
     </header>
-    <aside>
-        <nav class="sideBar">
-            <i class="fa-solid fa-times" id="cancelBtn"></i>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="#">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+
+    <!-- Responsive sidebar (shown on small screens) -->
+    <div id="sideBarOverlay"></div>
+    <aside id="sideBar">
+        <i class="fa-solid fa-xmark" id="closeSidebarBtn"></i>
+        <a href="index.html" class="logo">PEDICARE</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="viewbooking.html">Appointment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </aside>
+    
     <section id="bookingPage">
         <div class="logo"><h1>View Your Appointment</h1></div>
         <div id="appointmentList"></div>
@@ -86,7 +90,7 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="service.html">Services</a>
-                <a href="#">Booking</a>
+                <a href="#">Appointments</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="customerCare">
@@ -97,8 +101,8 @@
             </div>
             <div class="footerHours">
                 <h3>Opening Hours</h3>
-                <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
-                <p>Saturday: 10:00 AM – 6:00 PM</p>
+                <p>Monday-Friday: 9:00 AM-6:00 PM</p>
+                <p>Saturday: 10:00 AM-6:00 PM</p>
                 <p>Sunday: Closed</p>
             </div>
             <div class="followUs">
@@ -116,6 +120,7 @@
             <p>Built by Dev Sammy</p>
         </div>
     </footer>
-    <script src="booking.js"></script>
+    <script src="viewbooking_new.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>
