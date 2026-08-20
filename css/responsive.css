@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 /* ============================================================
    SHARED RESPONSIVE + SIDEBAR STYLES
    Loaded on every page AFTER its own stylesheet, so these rules
    override the fixed desktop layout on smaller screens.
    ============================================================ */
 
-/* Prevent horizontal scrolling on small screens & allow images to scale.
+/* Default site font (Roboto) + prevent horizontal scrolling on small
+   screens & allow images to scale.
+   This body rule is loaded after each page's own stylesheet, so it
+   overrides their default `font-family: sans-serif` site-wide.
    NOTE: apply overflow-x to <body> only (not <html>). Setting it on both
    turns <body> into a scroll container, which breaks the sticky navbar.
    With it on <body> only, the value propagates to the viewport (still
    clipping the off-canvas sidebar) while keeping position: sticky working. */
 body {
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
